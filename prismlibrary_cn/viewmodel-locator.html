@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using the ViewModelLocator | Prism </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using the ViewModelLocator | Prism ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/affix.css">
+    <meta property="docfx:navrel" content="../toc">
+    <meta property="docfx:tocrel" content="toc">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/prism-logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                <ul class="nav level1 navbar-nav">
+                  <li class="">
+                    <a href="//prismlibrary.com/" title="Home" class="">Home</a>
+                  </li>
+                  <li class="active">
+                    <a href="../docs/index.html" title="Documentation" class="active">Documentation</a>
+                  </li>
+                  <li class="">
+                    <a href="https://www.pluralsight.com/authors/brian-lagunas/" title="Learn" class="">Learn</a>
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="index.html" title="Introduction" class="">Introduction</a>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Getting Started</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="getting-started/Download-and-Setup-Prism.html" title="Download and Setup Prism" class="">Download and Setup Prism</a>
+                          </li>
+                          <li class="">
+                            <a href="getting-started/NuGet-Packages.html" title="NuGet Packages" class="">NuGet Packages</a>
+                          </li>
+                          <li class="">
+                            <a href="getting-started/productivity-tools.html" title="Productivity Tools" class="">Productivity Tools</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Dependency Injection</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="dependency-injection/index.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="dependency-injection/registering-types.html" title="Registering Types" class="">Registering Types</a>
+                          </li>
+                          <li class="">
+                            <a href="dependency-injection/platform-specific-services.html" title="Platform Specific Services" class="">Platform Specific Services</a>
+                          </li>
+                          <li class="">
+                            <a href="dependency-injection/resolution-errors.html" title="Exception Handling" class="">Exception Handling</a>
+                          </li>
+                          <li class="">
+                            <a href="dependency-injection/add-custom-container.html" title="Adding a Custom Container" class="">Adding a Custom Container</a>
+                          </li>
+                          <li class="">
+                            <a href="dependency-injection/appendix.html" title="Appendix" class="">Appendix</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <a href="commanding.html" title="Commanding" class="">Commanding</a>
+                    </li>
+                    <li class="">
+                      <a href="composite-commands.html" title="Composite Commands" class="">Composite Commands</a>
+                    </li>
+                    <li class="">
+                      <a href="event-aggregator.html" title="Event Aggregator" class="">Event Aggregator</a>
+                    </li>
+                    <li class="active">
+                      <a href="viewmodel-locator.html" title="ViewModelLocator" class="active">ViewModelLocator</a>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">WPF / Uno</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="wpf/introduction.html" title="Introduction" class="">Introduction</a>
+                          </li>
+                          <li class="">
+                            <a href="wpf/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="wpf/converting-from-6.html" title="Converting From Prism 6.x" class="">Converting From Prism 6.x</a>
+                          </li>
+                          <li class="">
+                            <a href="wpf/view-composition.html" title="View Composition" class="">View Composition</a>
+                          </li>
+                          <li class="">
+                            <span class="expand-stub"></span>
+                            <a class="">Region Navigation</a>
+                              
+                              <ul class="nav level3">
+                                <li class="">
+                                  <a href="wpf/region-navigation/basic-region-navigation.html" title="Basic Region Navigation" class="">Basic Region Navigation</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/region-navigation/view-viewmodel-participation.html" title="View/ViewModel Participation" class="">View/ViewModel Participation</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/region-navigation/navigation-existing-views.html" title="Navigating to Existing Views" class="">Navigating to Existing Views</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/region-navigation/passing-parameters.html" title="Passing Parameters" class="">Passing Parameters</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/region-navigation/confirming-navigation.html" title="Confirming Navigation" class="">Confirming Navigation</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/region-navigation/controlling-view-lifetime.html" title="Controlling View Lifetime" class="">Controlling View Lifetime</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/region-navigation/navigation-journal.html" title="Navigation Journal" class="">Navigation Journal</a>
+                                </li>
+                              </ul>  </li>
+                          <li class="">
+                            <a href="wpf/modules.html" title="Modules" class="">Modules</a>
+                          </li>
+                          <li class="">
+                            <span class="expand-stub"></span>
+                            <a class="">Interactivity</a>
+                              
+                              <ul class="nav level3">
+                                <li class="">
+                                  <a href="wpf/interactivity/event-to-command.html" title="Event To Command" class="">Event To Command</a>
+                                </li>
+                              </ul>  </li>
+                          <li class="">
+                            <a href="wpf/dialog-service.html" title="Dialog Service" class="">Dialog Service</a>
+                          </li>
+                          <li class="">
+                            <span class="expand-stub"></span>
+                            <a class="">Advanced</a>
+                              
+                              <ul class="nav level3">
+                                <li class="">
+                                  <a href="wpf/advanced/region-adapters.html" title="Region Adapters" class="">Region Adapters</a>
+                                </li>
+                              </ul>  </li>
+                          <li class="">
+                            <span class="expand-stub"></span>
+                            <a class="">Legacy (Prism 6)</a>
+                              
+                              <ul class="nav level3">
+                                <li class="">
+                                  <a href="wpf/legacy/Introduction.html" title="Introduction" class="">Introduction</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Initializing.html" title="Initializing" class="">Initializing</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Managing-Dependencies.html" title="Managing-Dependencies" class="">Managing-Dependencies</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Modules.html" title="Modules" class="">Modules</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Implementing-MVVM.html" title="Implementing-MVVM" class="">Implementing-MVVM</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Advanced-MVVM.html" title="Advanced-MVVM" class="">Advanced-MVVM</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Composing-the-UI.html" title="Composing-the-UI" class="">Composing-the-UI</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Navigation.html" title="Navigation" class="">Navigation</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Communication.html" title="Communication" class="">Communication</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Deploying.html" title="Deploying" class="">Deploying</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Appendix-A-Glossary.html" title="Appendix-A-Glossary" class="">Appendix-A-Glossary</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Appendix-B-Patterns.html" title="Appendix-B-Patterns" class="">Appendix-B-Patterns</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Appendix-C-Prism-Library.html" title="Appendix-C-Prism-Library" class="">Appendix-C-Prism-Library</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Appendix-D-Extending-Prism.html" title="Appendix-D-Extending-Prism" class="">Appendix-D-Extending-Prism</a>
+                                </li>
+                                <li class="">
+                                  <a href="wpf/legacy/Appendix-E-Click-Once.html" title="Appendix-E-Click-Once" class="">Appendix-E-Click-Once</a>
+                                </li>
+                              </ul>  </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Xamarin.Forms</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="xamarin-forms/creating-your-first-prism-app.html" title="Create Your First App" class="">Create Your First App</a>
+                          </li>
+                          <li class="">
+                            <span class="expand-stub"></span>
+                            <a class="">Behaviors</a>
+                              
+                              <ul class="nav level3">
+                                <li class="">
+                                  <a href="xamarin-forms/behaviors/index.html" title="Working with Behaviors" class="">Working with Behaviors</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/behaviors/eventtocommandbehavior.html" title="EventToCommand Behavior" class="">EventToCommand Behavior</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/behaviors/page-behavior-factory.html" title="PageBehaviorFactory" class="">PageBehaviorFactory</a>
+                                </li>
+                              </ul>  </li>
+                          <li class="">
+                            <span class="expand-stub"></span>
+                            <a class="">Dialogs</a>
+                              
+                              <ul class="nav level3">
+                                <li class="">
+                                  <a href="xamarin-forms/dialogs/index.html" title="Dialogs" class="">Dialogs</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/dialogs/page-dialog-service.html" title="Page Dialog Service" class="">Page Dialog Service</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/dialogs/dialog-service.html" title="Dialog Service" class="">Dialog Service</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/dialogs/styling-dialogs.html" title="Styling Dialogs" class="">Styling Dialogs</a>
+                                </li>
+                              </ul>  </li>
+                          <li class="">
+                            <span class="expand-stub"></span>
+                            <a class="">Navigation</a>
+                              
+                              <ul class="nav level3">
+                                <li class="">
+                                  <a href="xamarin-forms/navigation/navigation-basics.html" title="Navigation Basics" class="">Navigation Basics</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/navigation/passing-parameters.html" title="Passing Parameters" class="">Passing Parameters</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/navigation/confirming-navigation.html" title="Confirming Navigation" class="">Confirming Navigation</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/navigation/deep-linking.html" title="Deep Linking" class="">Deep Linking</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/navigation/working-with-masterdetailpages.html" title="Working w/ MasterDetailPages" class="">Working w/ MasterDetailPages</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/navigation/working-with-navigationpages.html" title="Working w/ NavigationPages" class="">Working w/ NavigationPages</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/navigation/working-with-tabbedpages.html" title="Working w/ TabbedPages" class="">Working w/ TabbedPages</a>
+                                </li>
+                                <li class="">
+                                  <a href="xamarin-forms/navigation/xaml-navigation.html" title="XAML Navigation" class="">XAML Navigation</a>
+                                </li>
+                              </ul>  </li>
+                          <li class="">
+                            <a href="xamarin-forms/auto-initialization.html" title="Auto Initialization" class="">Auto Initialization</a>
+                          </li>
+                          <li class="">
+                            <a href="xamarin-forms/application-lifecycle.html" title="Application Lifecycle" class="">Application Lifecycle</a>
+                          </li>
+                          <li class="">
+                            <a href="xamarin-forms/page-lifecycle.html" title="Page Lifecycle" class="">Page Lifecycle</a>
+                          </li>
+                          <li class="">
+                            <span class="expand-stub"></span>
+                            <a class="">Additional Platforms</a>
+                              
+                              <ul class="nav level3">
+                                <li class="">
+                                  <a href="xamarin-forms/platform-reference/gtk.html" title="GTK" class="">GTK</a>
+                                </li>
+                              </ul>  </li>
+                        </ul>  </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="using-the-viewmodellocator">Using the ViewModelLocator</h1>
+
+<p>The <code>ViewModelLocator</code> is used to wire the <code>DataContext</code> of a view to an instance of a ViewModel using a standard naming convention.</p>
+<p>The Prism <code>ViewModelLocator</code> has an <code>AutoWireViewModel</code> attached property, that when set to <code>true</code> calls the <code>AutoWireViewModelChanged</code> method in the <code>ViewModelLocationProvider</code> class to resolve the ViewModel for the view, and then set the view’s data context to an instance of that ViewModel.</p>
+<p>Add the <code>AutoWireViewModel</code> attached property to each View:</p>
+<pre><code>&lt;Window x:Class=&quot;Demo.Views.MainWindow&quot;
+    ...
+    xmlns:prism=&quot;http://prismlibrary.com/&quot;
+    prism:ViewModelLocator.AutoWireViewModel=&quot;True&quot;&gt;
+</code></pre><p>To locate a ViewModel, the <code>ViewModelLocationProvider</code> first attempts to resolve the ViewModel from any mappings that may have been registered by the <code>ViewModelLocationProvider.Register</code> method (See <a href="#Custom-ViewModel-Registrations">Custom ViewModel Registrations</a>).  If the ViewModel cannot be resolved using this approach, the <code>ViewModelLocationProvider</code> falls back to a convention-based approach to resolve the correct ViewModel type.  </p>
+<p>This convention assumes:</p>
+<ul>
+<li>that ViewModels are in the same assembly as the view types</li>
+<li>that ViewModels are in a <code>.ViewModels</code> child namespace</li>
+<li>that views are in a <code>.Views</code> child namespace</li>
+<li>that ViewModel names correspond with view names and end with &quot;ViewModel.&quot;</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>The <code>ViewModelLocationProvider</code> can be found in the <code>Prism.Mvvm</code> namespace in the <strong>Prism.Core</strong> NuGet package. The <code>ViewModelLocator</code> can be found in the <code>Prism.Mvvm</code> namespace in the platform specific packages (<strong>Prism.WPF</strong>, <strong>Prism.Forms</strong>) NuGet package.</p>
+</div>
+<div class="NOTE"><h5>Note</h5><p>The ViewModelLocator is required, and automatically applied to every View, when developing with Xamarin.Forms as it is responsible for providing the correct instance of the <code>INavigationService</code> to the ViewModel. When developing a Xamarin.Forms app, the <code>ViewModelLocator</code> is opt-out only.</p>
+</div>
+<div class="embeddedvideo"><iframe src="https://www.youtube.com/embed/I_3LxBdvJi4" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="change-the-naming-convention">Change the Naming Convention</h2>
+<p>If your application does not follow the <code>ViewModelLocator</code> default naming convention, you can change the convention to meet the requirements of your application.  The <code>ViewModelLocationProvider</code> class provides a static method called <code>SetDefaultViewTypeToViewModelTypeResolver</code> that can be used to provide your own convention for associating views to view models.</p>
+<p>To change the <code>ViewModelLocator</code> naming convention, override the <code>ConfigureViewModelLocator</code> method in the <code>App.xaml.cs</code> class. Then provide your custom naming convention logic in the <code>ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver</code> method.</p>
+<pre><code>protected override void ConfigureViewModelLocator()
+{
+    base.ConfigureViewModelLocator();
+
+    ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver((viewType) =&gt;
+    {
+        var viewName = viewType.FullName.Replace(&quot;.ViewModels.&quot;, &quot;.CustomNamespace.&quot;);
+        var viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
+        var viewModelName = $&quot;{viewName}ViewModel, {viewAssemblyName}&quot;;
+        return Type.GetType(viewModelName);
+    });
+}
+</code></pre><div class="embeddedvideo"><iframe src="https://www.youtube.com/embed/o4ibaOFvfww" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="custom-viewmodel-registrations">Custom ViewModel Registrations</h2>
+<p>There may be instances where your app is following the <code>ViewModelLocator</code> default naming convention, but you have a number of ViewModels that do not follow the convention. Instead of trying to customize the naming convention logic to conditionally meet all your naming requirments, you can register a mapping for a ViewModel to a specific view directly with the <code>ViewModelLocator</code> by using the <code>ViewModelLocationProvider.Register</code> method.</p>
+<p>The following examples show the various ways to create a mapping between a view called <code>MainWindow</code> and a ViewModel named <code>CustomViewModel</code>.</p>
+<p><strong>Type / Type</strong></p>
+<pre><code>ViewModelLocationProvider.Register(typeof(MainWindow).ToString(), typeof(CustomViewModel));
+</code></pre><p><strong>Type / Factory</strong></p>
+<pre><code>ViewModelLocationProvider.Register(typeof(MainWindow).ToString(), () =&gt; Container.Resolve&lt;CustomViewModel&gt;());
+</code></pre><p><strong>Generic Factory</strong></p>
+<pre><code>ViewModelLocationProvider.Register&lt;MainWindow&gt;(() =&gt; Container.Resolve&lt;CustomViewModel&gt;());
+</code></pre><p><strong>Generic Type</strong></p>
+<pre><code>ViewModelLocationProvider.Register&lt;MainWindow, CustomViewModel&gt;();
+</code></pre><div class="NOTE"><h5>Note</h5><p>Registering your ViewModels directly with the <code>ViewModelLocator</code> is faster than relying on the default naming convention. This is because the naming convention requires the use of reflection, while a custom mapping provides the type directly to the <code>ViewModelLocator</code>.</p>
+</div>
+<div class="IMPORTANT"><h5>Important</h5><p>The <code>viewTypeName</code> parameter must be the fully qualifyied name of the view&#39;s Type (<code>Type.ToString()</code>). Otherwise the mapping will fail.</p>
+</div>
+<div class="embeddedvideo"><iframe src="https://www.youtube.com/embed/phMc4OuKs58" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="control-how-viewmodels-are-resolved">Control how ViewModels are Resolved</h2>
+<p>By default, the <code>ViewModelLocator</code> will use the DI container you have chosen to create your Prism application to resolve ViewModels.  However, if you ever have the need to customize how ViewModels are resolved or change the resolver altogether, you can achieve this by using the <code>ViewModelLocationProvider.SetDefaultViewModelFactory</code> method.</p>
+<p>This example shows how you might change the container used for resolving the ViewModel instances.</p>
+<pre><code>protected override void ConfigureViewModelLocator()
+{
+    base.ConfigureViewModelLocator();
+
+    ViewModelLocationProvider.SetDefaultViewModelFactory(viewModelType) =&gt;
+    {
+        return MyAwesomeNewContainer.Resolve(viewModelType);
+    });
+}
+</code></pre><p>This is an example of how you might check the type of the view the ViewModel is being created for, and performing logic to control how the ViewModel is created.</p>
+<pre><code>protected override void ConfigureViewModelLocator()
+{
+    base.ConfigureViewModelLocator();
+
+    ViewModelLocationProvider.SetDefaultViewModelFactory((view, viewModelType) =&gt;
+    {
+        switch (view)
+        {
+            case Window window:
+                //your logic
+                break;
+            case UserControl userControl:
+                //your logic
+                break;
+        }
+
+        return MyAwesomeNewContainer.Resolve(someNewType);
+    });
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix" style="margin-top: 0px;">
+              <div class="connect-widget">
+                <ul class="connect-links">
+          		<li id="connect-github">
+          			<a href="https://github.com/PrismLibrary/Prism-Documentation/blob/master/docs/viewmodel-locator.md/#L1" target="_blank">
+          				<div class="image github"></div>Edit on GitHub
+          			</a>
+                  </li>
+                  <li id="connect-stack-overflow">
+                      <a href="https://stackoverflow.com/questions/tagged/prism" target="_blank">
+                          <div class="image stackoverflow"></div>Ask questions
+                      </a>
+                  </li>
+                  <li id="connect-twitter">
+                      <a href="https://twitter.com/prismlib" target="_blank">
+                          <div class="image twitterhandle"></div>Follow @PrismLib
+                      </a>
+                  </li>
+                  <li id="connect-twitter">
+                      <a href="https://twitter.com/brianlagunas" target="_blank">
+                          <div class="image twitterhandle"></div>Follow @BrianLagunas
+                      </a>
+                  </li>
+                  <li id="connect-twitter">
+                      <a href="https://twitter.com/danjsiegel" target="_blank">
+                          <div class="image twitterhandle"></div>Follow @DanJSiegel
+                      </a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright 2017 Prism
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

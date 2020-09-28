@@ -1,4 +1,0 @@
-# Controlling View Lifetime
-
-RegionMemberLifetimeAttribute
-IRegionMemberLifetime

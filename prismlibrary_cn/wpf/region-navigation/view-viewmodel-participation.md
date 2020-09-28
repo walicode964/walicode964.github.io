@@ -1,1 +1,0 @@
-# View and ViewModel Participation
